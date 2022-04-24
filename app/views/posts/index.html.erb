@@ -1,0 +1,36 @@
+<p>スケジュール一覧</p>
+
+
+<table class="table table-striped">
+  <tr>
+   <th>ID</th>
+   <th>タイトル</th>
+   <th>開始日</th>
+   <th>終了日</th>
+   <th>終日</th>
+   <th>更新日</th>
+   <th></th>
+   <th></th>
+   <th></th>
+  </tr>
+
+ <% @posts.each do |post| %>
+  <tr>
+   <td><%= post.id %></td>
+   <td><%= post.title %></td>
+   <td><%= post.start_at .to_s(:datetime_jp) %></td>
+   <td><%= post.finish_at .to_s(:datetime_jp) %></td>
+   <td>
+     <% if post.all %>
+      <strong>○</strong>
+     <% end %>
+   </td>
+   <td><%= post.updated_at .to_s(:datetime_jp) %></td>
+   <td><%= link_to "確認", post_path(post) %></td>
+   <td><%= link_to "編集", edit_post_path(post) %></td>
+   <td><%= link_to "削除", post_path(post),method:"delete",data:{confirm:'本当に削除しますか？'} %>
+  </tr>
+ <% end %>
+</table>
+
+<li><%= link_to "新規登録する", new_post_path %>
