@@ -1,0 +1,31 @@
+<p>スケジュール詳細</hp>
+<table class="table table-striped">
+ <tr>
+  <th>ID</th>
+  <td><%= @post.id %></td>
+ </tr>
+ <tr>
+  <th>タイトル</th>
+  <td><%= @post.title %></td>
+ </tr>
+ <tr>
+  <th>開始日</th>
+  <td><%= @post.start_at.to_s(:datetime_jp) %></td>
+ </tr>
+ <tr>
+  <th>終了日</th>
+  <td><%= @post.finish_at.to_s(:datetime_jp) %></td>
+ </tr>
+ <tr>
+  <th>終日</th>
+  <td>
+  <% if @post.all %>
+      <strong>○</strong>
+     <% end %></td>
+ </tr>
+ <tr>
+  <th>メモ</th>
+  <td><%= @post.memo %></td>
+ </tr>
+</table>
+<%= link_to"スケジュール一覧へ戻る", posts_path %>

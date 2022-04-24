@@ -1,0 +1,42 @@
+<p>スケジュール<%= type %></p>
+
+
+<%= form_with model: post do |f| %>
+  <div class="col-5 ml-3">  
+    <table class="table table-bordered">
+     <tbody>
+
+       <tr>
+        <td >タイトル</td>
+        <td ><%= f.text_field:title, class:"form-control" %></td>
+       </tr>
+
+       <tr>
+        <td>開始日</td>
+        <td><%= f.date_field:start_at, class:"form-control" %></td>
+       </tr>
+       <tr>
+        <td>終了日</td>
+        <td><%= f.date_field:finish_at, class:"form-control" %></td>
+       </tr>
+       <tr>
+        <td>終日</td>
+        <td><%= f.check_box:all %></td>
+       </tr>
+        <tr>
+        <td>メモ</td>
+        <td><%= f.text_area:memo %></td>
+       </tr>
+
+       
+     </tbody>
+   </table>
+  </div>
+
+  <div>
+     <ul>
+      <li><%=f.submit type %></li>
+      <li><%=link_to"スケジュール一覧に戻る", posts_path %></li>
+    </div>
+
+<% end %>
